@@ -1,13 +1,4 @@
-const combinations = [
-    ['0','1','2'],
-    ['3','4','5'],
-    ['6','7','8'],
-    ['0','3','6'],
-    ['1','4','7'],
-    ['2','5','8'],
-    ['0','4','8'],
-    ['6','4','2']
-];
+const combinations = [['0','1','2'],['3','4','5'],['6','7','8'],['0','3','6'],['1','4','7'],['2','5','8'],['0','4','8'],['6','4','2']];
 
 var counter = 0, active = 0, playerA = [], playerB = [];
 var reset = document.getElementById('reset').addEventListener('click', resetBoard);
@@ -21,15 +12,13 @@ for (let box of boxs) {
 };
 
 function checkCombination(array) {
-    for (let x = 0; x < combinations.length; x++) {
-        if(combinations[x].every((val) => array.includes(val))) {return true;}
+    for (let combination of combinations) {
+        if(combination.every((val) => array.includes(val))) {return true;}
     }
 };
 
 function play(string,element) {
-    console.log(counter);
     if (counter < 8) {
-        console.log(counter);
         if (active == 0){
             element.className = 'selected';
             element.innerHTML = 'X';
@@ -44,7 +33,7 @@ function play(string,element) {
         }
         else {
             element.className = 'selected';
-            element.innerHTML = '0';
+            element.innerHTML = 'Oåß';
             items.textContent = "It's B's turn";
             playerB.push(string);
             if (checkCombination(playerB)) {
@@ -55,9 +44,7 @@ function play(string,element) {
             counter++;
         }
     }
-    else {
-        alert('No winner');
-    }
+    else {alert('No winner');}
 }
 
 function resetBoard(){location.reload();}
