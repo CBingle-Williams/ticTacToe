@@ -5,22 +5,22 @@ var reset = document.getElementById('reset').addEventListener('click', resetBoar
 var items = document.querySelectorAll('h2')[0];
 
 var boxs = document.getElementsByTagName('td');
+console.log(boxs );
 for (let box of boxs) {
     box.addEventListener('click', function () {
-        if (!box.className){play(box.getAttribute('data-num'),box);}
-    });
+        play(box.getAttribute('data-num'),box);
+    }, {once: true});
 };
 
 function checkCombination(array) {
-    for (let combination of combinations) {
-        if(combination.every((val) => array.includes(val))) {return true;}
+    for (let combination of combinations) {                                //funcName(2) returns 4;
+        if(combination.every((val) => array.includes(val))) {return true;} //var funcName = (params) => params + 2
     }
 };
 
 function play(string,element) {
-    if (counter < 8) {
+    if (counter < 9) {
         if (active == 0){
-            element.className = 'selected';
             element.innerHTML = 'X';
             items.textContent = "It's A's turn";
             playerA.push(string);
@@ -32,8 +32,7 @@ function play(string,element) {
             counter ++;
         }
         else {
-            element.className = 'selected';
-            element.innerHTML = 'Oåß';
+            element.innerHTML = 'O';
             items.textContent = "It's B's turn";
             playerB.push(string);
             if (checkCombination(playerB)) {
