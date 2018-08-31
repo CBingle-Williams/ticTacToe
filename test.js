@@ -19,7 +19,7 @@ function checkCombination(array) {
 function play(string,element) {
     if (counter < 9) {
         if (active == 0){
-            element.innerHTML = 'X';
+            element.textContent = 'X';
             items.textContent = "It's A's turn";
             playerA.push(string);
             if (checkCombination(playerA)) {
@@ -30,7 +30,7 @@ function play(string,element) {
             counter ++;
         }
         else {
-            element.innerHTML = 'O';
+            element.textContent = 'O';
             items.textContent = "It's B's turn";
             playerB.push(string);
             if (checkCombination(playerB)) {
