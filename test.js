@@ -1,11 +1,9 @@
 const combinations = [['0','1','2'],['3','4','5'],['6','7','8'],['0','3','6'],['1','4','7'],['2','5','8'],['0','4','8'],['6','4','2']];
-
 var counter = 0, active = 0, playerA = [], playerB = [];
 var reset = document.getElementById('reset').addEventListener('click', resetBoard);
 var items = document.querySelectorAll('h2')[0];
 
 var boxs = document.getElementsByTagName('td');
-console.log(boxs );
 for (let box of boxs) {
     box.addEventListener('click', function () {
         play(box.getAttribute('data-num'),box);
@@ -13,8 +11,8 @@ for (let box of boxs) {
 };
 
 function checkCombination(array) {
-    for (let combination of combinations) {                                //funcName(2) returns 4;
-        if(combination.every((val) => array.includes(val))) {return true;} //var funcName = (params) => params + 2
+    for (let combination of combinations) {
+        if(combination.every((val) => array.includes(val))) {return true;}
     }
 };
 
